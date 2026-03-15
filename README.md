@@ -25,6 +25,8 @@ Repositório da disciplina **Desenvolvimento Web II** — 2026
 
 - 📄 [Página de Apresentação](00_apresentacao/index.html)
 
+- 📄 [Aula 4](../index.php)
+
 ---
 
 ## 🔗 Como visualizar
