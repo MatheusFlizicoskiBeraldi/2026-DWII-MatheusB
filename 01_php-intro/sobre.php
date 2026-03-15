@@ -1,7 +1,7 @@
 <!-- 01_php-intro/sobre.php -->
 <?php
 
-$nome        = "Matheus Flizicoski Beraldi";
+$nome         = "Matheus Flizicoski Beraldi";
 $pagina_atual = "sobre";
 
 ?>
@@ -23,7 +23,7 @@ $pagina_atual = "sobre";
         <p>Olá! Sou <strong><?php echo $nome; ?></strong>, estudante de
         Técnico em Informática no IFPR de Ponta Grossa.</p>
         <p> Eu gosto muito de passar o meu tempo estudando sobre diversos assuntos, mas principalmente sobre a vida num geral, indo desde bactérias unicelulares até os mais diversos tipos de trilobitas vivos há mais de 500 milhões de anos atrás. Particularmente o meu animal preferido é o Spinosaurus Aegyptacus, o que me fascina o fato de existir um exemplar muito parecido com o gigante egípcio aqui no Brasil, descoberto no Nordeste, o Oxalaia Quilombensis. Pretendo me tornar um pesquisador, professor e trazer a paleontologia para o Brasil.</p>
-
+        <p> Neste ano iniciarei na pesquisa científica voltada à àrea de biologia, ou se existir, geologia. Não me dou bem com as matérias técnicas, mas de qualquer jeito eu costumo me virar nos 30.</p>
         <a href="index.php"
         style="color: #3b579d; font-weight: bold;">← Voltar ao início</a>
     </div>
