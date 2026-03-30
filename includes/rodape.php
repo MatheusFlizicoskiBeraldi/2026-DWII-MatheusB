@@ -9,12 +9,11 @@
  * --------------------------------------------------------------
  */
 
-// Fallback: se $nome não estiver definida na página, exibe "Portfólio".
-// Isso evita avisos de PHP quando o rodapé é incluído sem $nome.
+
 $autor = isset($nome) ? htmlspecialchars($nome) : "Portfólio";
 ?>
 
-<!-- <footer> sem style inline: visual controlado pelo style.css -->
+
 <footer>
 
     <?php echo $autor; ?>

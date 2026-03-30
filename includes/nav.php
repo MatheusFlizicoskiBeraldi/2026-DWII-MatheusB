@@ -17,7 +17,7 @@
  *   $caminho_raiz  – string: caminho relativo até a raiz
  */
 
-// Valores padrão: evita erro se a página esquecer de declarar
+
 if (!isset($pagina_atual)) $pagina_atual = "";
 if (!isset($caminho_raiz)) $caminho_raiz = "../";
 
@@ -28,10 +28,10 @@ function menu_class($item, $atual) {
 
 ?>
 
-<!-- nav usa a classe CSS definida em style.css — sem style inline -->
+
 <nav>
 
-<!-- links para o portfólio – Aula 03 -->
+
 <a href="<?php echo $caminho_raiz; ?>index.php"
    <?php echo menu_class("inicio", $pagina_atual); ?>>
    🏠 Início
@@ -47,7 +47,7 @@ function menu_class($item, $atual) {
    🚀 Projetos
 </a>
 
-<!-- link para o formulário – Aula 04 -->
+
 <a href="<?php echo $caminho_raiz; ?>02_formularios/contato.php"
    <?php echo menu_class("contato", $pagina_atual); ?>>
    📬 Contato

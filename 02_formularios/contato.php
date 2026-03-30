@@ -8,24 +8,24 @@
  * --------------------------------------------------------------
  */
 
-// — VARIÁVEIS DO TEMPLATE —
+
 $nome          = "Matheus Flizicoski Beraldi";
 $pagina_atual  = "contato";
 $caminho_raiz  = "../";
 $titulo_pagina = "Contato";
 
-// — ESTADO INICIAL —
+
 $nome_visitante = '';
 $mensagem       = '';
 $erros          = [];
 
-// — PROCESSAR SOMENTE SE VEIO POST —
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nome_visitante = trim($_POST['nome_visitante'] ?? '');
     $mensagem       = trim($_POST['mensagem'] ?? '');
 
-    // — VALIDAÇÕES —
+
     if (empty($nome_visitante)) {
         $erros[] = 'O campo Nome é obrigatório.';
     }
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </form>
 
-<!-- BLOCO DE EXIBIÇÃO DE ERROS -->
+
 <?php if (!empty($erros)): ?>
     <div class="alerta-erro">
         <h3>🚫 Corrija os erros:</h3>
@@ -70,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 <?php endif; ?>
 
-<!-- EXIBIR DADOS SE NÃO HOUVER ERROS -->
 <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($erros)): ?>
     <div class="alerta-sucesso" style="margin-top:20px;">
         <h3>✅ Dados recebidos!</h3>
