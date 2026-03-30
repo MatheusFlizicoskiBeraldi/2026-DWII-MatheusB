@@ -28,7 +28,7 @@ body {
 }
 
 
-h1.titulo-secao { color: #9d1ea8; margin-bottom: 24px; }
+h1.titulo-secao { color: #ffffff; margin-bottom: 24px; }
 
 
 nav {
@@ -127,3 +127,8 @@ footer {
   font-size: 14px;
   line-height: 1.8;
 }
+
+.confirmacao { text-align: center; margin-top: 60px; }
+.confirmacao-icone { font-size: 60px; margin: 0; }
+.confirmacao-titulo { color: #b167ab; margin: 16px 0 8px; }
+.confirmacao-texto { font-size: 16px; color: #0a234d; margin-bottom: 24px; }

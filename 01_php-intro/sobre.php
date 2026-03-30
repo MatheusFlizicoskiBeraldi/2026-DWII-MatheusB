@@ -32,7 +32,7 @@ Eu gosto muito de passar o meu tempo estudando sobre diversos assuntos, mas prin
 </p>
 
 <p>
-Neste ano iniciarei na pesquisa científica voltada à área de biologia, ou se existir, geologia. Não me dou bem com as matérias técnicas, mas de qualquer jeito eu costumo me virar nos 30.
+Neste ano, eu iniciarei na pesquisa científica voltada à área de biologia, ou se existir, geologia. Não me dou bem com as matérias técnicas, mas de qualquer jeito eu costumo me virar nos 30.
 </p>
 
 <a href="../index.php" style="color: #3b579d; font-weight: bold;">
