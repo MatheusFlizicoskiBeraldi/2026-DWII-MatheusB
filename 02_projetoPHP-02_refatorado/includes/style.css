@@ -1,0 +1,134 @@
+/* ════════════════════════════════════════════════════════════
+ * ARQUIVO    : includes/style.css
+ * Disciplina : Desenvolvimento Web II (2026-DWII)
+ * Aula       : 04 — PHP para Web: Formulários, GET e POST
+ * Autor      : Matheus Flizicoski Beraldi
+ * Escopo     : Estilos globais compartilhados por todas as aulas
+ * ════════════════════════════════════════════════════════════
+ *
+ * Um único arquivo CSS para todo o projeto.
+ * Para mudar o visual do menu, do rodapé ou dos formulários:
+ * edite AQUI — a mudança reflete em todas as páginas.
+ */
+
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: Arial, sans-serif;
+  background: #fadefc;
+  color: #8203dc;
+  line-height: 1.7;
+}
+
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+
+h1.titulo-secao { color: #ffffff; margin-bottom: 24px; }
+
+
+nav {
+  background: #9d1ea8;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+nav a {
+  color: #9d1ea8;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+nav a.ativo {
+  color: #9d1ea8;
+  border-bottom: 2px solid #9d1ea8;
+}
+
+
+.card {
+  background: #fadefc;
+  padding: 28px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 4px solid #9d1ea8;
+}
+.card h3 { margin-top: 0; color: #9d1ea8; margin-bottom: 12px; }
+.card p  { margin-bottom: 0; color: #9d1ea8; }
+
+.form-container {
+  background: #fadefc;
+  padding: 30px;
+  border-radius: 8px;
+}
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  margin-top: 16px;
+}
+label:first-of-type { margin-top: 0; }
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+}
+textarea { resize: vertical; }
+
+button[type="submit"] {
+  margin-top: 20px;
+  background: #9d1ea8;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 15px;
+  cursor: pointer;
+}
+button[type="submit"]:hover { background: #2a4080; }
+
+
+.alerta-erro {
+  background: #fce8e8;
+  border-left: 4px solid #9d1ea8;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin-top: 20px;
+}
+.alerta-erro h3 { color: #9d1ea8; margin-top: 0; }
+
+
+.alerta-sucesso {
+  background: #e9f5ea;
+  border-left: 4px solid #8203dc;
+  border-radius: 0 8px 8px 0;
+  padding: 18px 22px;
+  margin-top: 20px;
+}
+.alerta-sucesso h3 { color: #8203dc; margin-top: 0; }
+
+
+footer {
+  background: #010000;
+  color: #8203dc;
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.confirmacao { text-align: center; margin-top: 60px; }
+.confirmacao-icone { font-size: 60px; margin: 0; }
+.confirmacao-titulo { color: #b167ab; margin: 16px 0 8px; }
+.confirmacao-texto { font-size: 16px; color: #0a234d; margin-bottom: 24px; }
