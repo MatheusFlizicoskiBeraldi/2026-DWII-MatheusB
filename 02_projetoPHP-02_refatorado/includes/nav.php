@@ -1,74 +1,104 @@
 <?php
 /**
- * --------------------------------------------------------------
- * ARQUIVO     : includes/nav.php
- * Disciplina  : Desenvolvimento Web II (2026-DWII)
- * Aula        : 04 – PHP para Web: Formulários, GET e POST
- * Autor       : Matheus Flizicoski Beraldi
- * Conceitos   : Menu dinâmico, operador ternário, $caminho_raiz
- * --------------------------------------------------------------
- *
- * Mesmo padrão do nav.php da Aula 03, com duas melhorias:
- *   1. Links montados via $caminho_raiz → funciona de qualquer pasta
- *   2. Classe CSS "ativo" em vez de style inline → CSS externo controla
- *
- * Variáveis esperadas:
- *   $pagina_atual  – string: identifica qual item destacar no menu
- *   $caminho_raiz  – string: caminho relativo até a raiz
+ * ════════════════════════════════════════════════════════════
+ * Disciplina : Desenvolvimento Web II (DWII)
+ * Projeto    : Portfólio Pessoal — versão refatorada
+ * Arquivo    : includes/nav.php
+ * Autor      : [SEU NOME AQUI]
+ * Data       : [DATA DE HOJE]
+ * Descrição  : Navegação global condicional do projeto.
+ *              Links públicos: sempre visíveis.
+ *              Links restritos (Painel, Sair): visíveis apenas
+ *              quando o usuário está autenticado ($_SESSION).
+ *              Link de Login: visível apenas quando NÃO autenticado.
+ * ════════════════════════════════════════════════════════════
  */
 
+// ── Fallbacks defensivos ─────────────────────────────────────
+if (!isset($pagina_atual)) $pagina_atual = '';
+if (!isset($caminho_raiz))  $caminho_raiz  = './';
 
-if (!isset($pagina_atual)) $pagina_atual = "";
-if (!isset($caminho_raiz)) $caminho_raiz = "./";
-
-
-function menu_class($item, $atual) {
+// ── Função auxiliar: classe do item ativo ────────────────────
+//
+// Recebe o nome do item e da página atual.
+// Retorna 'class="ativo"' se forem iguais, '' se não.
+// Isso aplica o estilo dourado ao item do menu da página atual.
+//
+// Exemplo: menu_class('sobre', 'sobre') → 'class="ativo"'
+//          menu_class('contato', 'sobre') → ''
+function menu_class(string $item, string $atual): string {
     return ($item === $atual) ? 'class="ativo"' : '';
 }
 
+// ── Verificar estado de autenticação ─────────────────────────
+//
+// $_SESSION['usuario'] é definida em login.php quando o login
+// é bem-sucedido e destruída em logout.php.
+//
+// isset() retorna true se a variável existe e não é null.
+// Usamos $logado (booleano) para decidir quais links exibir.
+//
+// session_start() foi chamado em cabecalho.php — a sessão já
+// está disponível quando chegamos aqui.
 $logado = isset($_SESSION['usuario']);
-
 ?>
-                                                                                                                                                                                                                                                                                                   
 
 <nav>
 
+  <!-- ── LINKS PÚBLICOS ─────────────────────────────────────
+       Sempre visíveis, independente do estado de autenticação.
+  -->
 
-<a href="<?php echo $caminho_raiz; ?>index.php"
-   <?php echo menu_class("inicio", $pagina_atual); ?>>
-   🏠 Início
-</a>
+  <a href="<?php echo $caminho_raiz; ?>index.php"
+     <?php echo menu_class('inicio', $pagina_atual); ?>>
+    🏠 Início
+  </a>
 
-<a href="<?php echo $caminho_raiz; ?>01_php-intro/sobre.php"
-   <?php echo menu_class("sobre", $pagina_atual); ?>>
-   👤 Sobre
-</a>
+  <a href="<?php echo $caminho_raiz; ?>sobre.php"
+     <?php echo menu_class('sobre', $pagina_atual); ?>>
+    👤 Sobre
+  </a>
 
-<a href="<?php echo $caminho_raiz; ?>01_php-intro/projetos.php"
-   <?php echo menu_class("projetos", $pagina_atual); ?>>
-   🚀 Projetos
-</a>
+  <a href="<?php echo $caminho_raiz; ?>projetos.php"
+     <?php echo menu_class('projetos', $pagina_atual); ?>>
+    🚀 Projetos
+  </a>
 
+  <a href="<?php echo $caminho_raiz; ?>contato.php"
+     <?php echo menu_class('contato', $pagina_atual); ?>>
+    📬 Contato
+  </a>
 
-<a href="<?php echo $caminho_raiz; ?>02_formularios/contato.php"
-   <?php echo menu_class("contato", $pagina_atual); ?>>
-   📬 Contato
-</a>
+  <a href="<?php echo $caminho_raiz; ?>catalogo.php"
+     <?php echo menu_class('catalogo', $pagina_atual); ?>>
+    🗄️ Catálogo
+  </a>
 
+  <!-- ── LINKS CONDICIONAIS ──────────────────────────────────
+       O PHP decide quais links renderizar em tempo de execução,
+       baseado no valor de $logado.
+       O visitante nunca vê os links que não são para ele —
+       eles simplesmente não existem no HTML gerado.
+  -->
+  <?php if ($logado): ?>
 
-<?php if ($logado): ?>
-   <a href="<?php echo $caminho_raiz; ?>painel.php"
-      <?php echo menu_class('painel', $pagina_atual); ?>> 
-      Painel </a>
-   <a href="<?php echo $caminho_raiz; ?>logout.php"
-      <?php echo menu_class('logout', $pagina_atual); ?>> 
-      Logout </a>
-<?php else: ?>
-   <a href="<?php echo $caminho_raiz; ?>login.php"
-   <?php echo menu_class('login', $pagina_atual); ?>>
-login 
-</a>
+    <!-- USUÁRIO AUTENTICADO: exibe Painel e Sair -->
+    <a href="<?php echo $caminho_raiz; ?>painel.php"
+       <?php echo menu_class('painel', $pagina_atual); ?>>
+      📊 Painel
+    </a>
+    <a href="<?php echo $caminho_raiz; ?>logout.php">
+      🚪 Sair
+    </a>
 
-<?php endif; ?>
+  <?php else: ?>
+
+    <!-- USUÁRIO NÃO AUTENTICADO: exibe apenas Login -->
+    <a href="<?php echo $caminho_raiz; ?>login.php"
+       <?php echo menu_class('login', $pagina_atual); ?>>
+      🔐 Login
+    </a>
+
+  <?php endif; ?>
 
 </nav>

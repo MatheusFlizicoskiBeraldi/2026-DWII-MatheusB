@@ -1,47 +1,49 @@
-<!-- 01_php-intro/sobre.php -->
 <?php
 
-$nome         = "Matheus Flizicoski Beraldi";
-$titulo_pagina = "Portfólio -- ($nome)";
-$caminho_raiz = "../";
-$pagina_atual = "sobre";
+if (session_status() === PHP_SESSION_NONE) session_start();
 
+$pagina_atual  = 'sobre';
+$titulo_pagina = 'Sobre | Portfólio DWII';
+$caminho_raiz  = './';
+
+$formacoes = [
+    "Técnico em Informática — IFPR (em andamento)",
+    "Curso de Desenvolvimento Web (2025)",
+
+];
 ?>
 
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre – <?php echo $nome; ?></title>
+  <!-- ✅ '/../includes/' → '/includes/' -->
+  <?php include __DIR__ . '/includes/cabecalho.php'; ?>
 </head>
+<body>
+  <div class="container">
+    <h1 class="titulo-secao">👤 Sobre mim</h1>
 
-<body style="font-family: Arial, sans-serif; margin: 0; background: #f3f4f6;">
-
-<?php include '../includes/cabecalho.php'; ?> 
-
-<div style="max-width: 800px; margin: 40px auto; padding: 0 20px;">
-
-<h1 style="color: #9d3b97;">🦈 Sobre mim</h1>
-
-<p>Olá! Sou <strong><?php echo $nome; ?></strong>, estudante de
-Técnico em Informática no IFPR de Ponta Grossa.</p>
-
-<p>
-Eu gosto muito de passar o meu tempo estudando sobre diversos assuntos, mas principalmente sobre a vida num geral, indo desde seres vivos unicelulares, como as bactérias, até os mais diversos tipos de trilobitas vivos há mais de 500 milhões de anos atrás. Particularmente, o meu animal preferido é o Spinosaurus Aegyptacus, o que me fascina o fato de existir um exemplar muito parecido com o gigante egípcio aqui no Brasil, descoberto no Nordeste, o Oxalaia Quilombensis. Pretendo me tornar um pesquisador, professor e trazer a paleontologia para o Brasil.
-</p>
-
-<p>
-Neste ano, eu iniciarei na pesquisa científica voltada à área de biologia, ou se existir, geologia. Não me dou bem com as matérias técnicas, mas de qualquer jeito eu costumo me virar nos 30.
-</p>
-
-<a href="../index.php" style="color: #3b579d; font-weight: bold;">
-← Voltar ao início
-</a>
-
+<div class="card">
+  <h3>Matheus Beraldi</h3>
+  <!-- $nome disponível via fallback do cabecalho.php -->
+  <p>Olá! Sou <strong><?php echo htmlspecialchars($nome); ?></strong>,
+     estudante do 3º ano do Técnico em Informática no IFPR de Ponta Grossa.</p>
 </div>
 
-<?php include '../includes/rodape.php'; ?>
+<div class="card">
+  <h3>Formação</h3>
+  <ul style="margin: 0; padding-left: 20px; color: #374151;">
+    <?php foreach ($formacoes as $item): ?>
+      <li style="margin-bottom: 6px;"><?php echo htmlspecialchars($item); ?></li>
+    <?php endforeach; ?>
+  </ul>
+</div>
+  </div>
+
+  <!-- ✅ '/../includes/' → '/includes/' -->
+
+  <?php include __DIR__ . '/includes/rodape.php'; ?>
 
 </body>
 </html>

@@ -1,8 +1,7 @@
 <?php
 if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+session_start();
 }
-
 
 $pagina_atual  = 'inicio';
 $caminho_raiz  = './';
